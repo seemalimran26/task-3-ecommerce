@@ -1,13 +1,17 @@
+import { ShoppingCart } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
-function Header() {
+function Header({ onCartClick }) {
   const { totalItems } = useCart();
 
   return (
     <header className="header">
       <div className="logo">ShopEase</div>
 
-      <div className="header-cart">🛒 Cart ({totalItems})</div>
+      <button className="header-cart" onClick={onCartClick}>
+        <ShoppingCart size={18} />
+        <span>Cart ({totalItems})</span>
+      </button>
     </header>
   );
 }
